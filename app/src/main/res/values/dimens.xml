@@ -2,5 +2,7 @@
 <resources>
     <dimen name="mainTitleWidth">330dp</dimen>
     <dimen name="mainEnterTextSize">30sp</dimen>
+    <dimen name="margin">10dp</dimen>
+    <dimen name="newSpendingHeight">50dp</dimen>
 
 </resources>
