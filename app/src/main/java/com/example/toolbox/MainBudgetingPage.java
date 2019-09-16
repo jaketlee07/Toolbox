@@ -2,6 +2,7 @@ package com.example.toolbox;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.PieChart;
@@ -26,6 +28,9 @@ public class MainBudgetingPage extends AppCompatActivity implements AdapterView.
 
     private static String TAG = "MainBudgetingPage";
 
+    public static final String NAME = "name";
+    public static final String SALARY = "salary";
+
     private float[] yData = {20f, 20f, 20f, 20f, 20f};
     private String[] xData = {"Food", "Utilities", "Entertainment", "Shopping", "Other"};
     PieChart pieChart;
@@ -34,6 +39,14 @@ public class MainBudgetingPage extends AppCompatActivity implements AdapterView.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_budgeting_page);
+
+        Intent intent = getIntent();
+        String myName = intent.getStringExtra(NAME);
+        String mySalary = intent.getStringExtra(SALARY);
+
+        String strToDisplay = myName + "'s Budgeting";
+        TextView str = (TextView) findViewById(R.id.mainBudgetTitle);
+        str.setText(strToDisplay);
 
         Log.d(TAG, "onCreate: starting to create chart");
 
@@ -136,12 +149,17 @@ public class MainBudgetingPage extends AppCompatActivity implements AdapterView.
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
     {
-       // String text =  parent.getItemAtPosition(position).toString();
+        String text =  adapterView.getItemAtPosition(i).toString();
         //Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT.show())
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView)
+    {
+
+    }
+
+    public void addSpending (View v)
     {
 
     }
