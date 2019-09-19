@@ -1,10 +1,22 @@
 <resources>
     <string name="app_name">Toolbox</string>
+
+    <string name="spendingTextBox">Spending</string>
+    <string name="spendingEditText"></string>
+
     <string-array name="spending_category_array">
-        <item>Food</item>
-        <item>Utilities</item>
-        <item>Entertainment</item>
-        <item>Shopping</item>
-        <item>Other</item>
+        <item>1 Month</item>
+        <item>6 Months</item>
+        <item>12 Months</item>
+        <item>24 Months</item>
+        <item>36 Months</item>
     </string-array>
+
+    <string name="radio1">Monthly</string>
+    <string name="radio2">Yearly</string>
+
+    <string name="check1">Monthly</string>
+    <string name="check2">Yearly</string>
+
+
 </resources>

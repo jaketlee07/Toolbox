@@ -9,7 +9,7 @@
     android:orientation="vertical">
 
     <EditText
-        android:id="@+id/name"
+        android:id="@+id/savingEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
@@ -48,7 +48,7 @@
         android:layout_marginBottom="124dp"
         android:text="Personal Budgeting App"
         android:textSize="@dimen/mainEnterTextSize"
-        app:layout_constraintBottom_toTopOf="@+id/name"
+        app:layout_constraintBottom_toTopOf="@+id/savingEdit"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
@@ -68,11 +68,33 @@
         android:id="@+id/button"
         android:layout_width="121dp"
         android:layout_height="84dp"
-        android:layout_marginStart="145dp"
-        android:layout_marginBottom="83dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginBottom="52dp"
+        android:onClick="startBudgeting"
         android:text="Start Budgeting"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioSex"
+        android:layout_width="223dp"
+        android:layout_height="121dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
-        android:onClick="startBudgeting"/>
+        app:layout_constraintTop_toBottomOf="@+id/salary">
+
+        <RadioButton
+            android:id="@+id/radioMale"
+            android:layout_width="@dimen/radioButtonWidth"
+            android:layout_height="@dimen/radioButtonHeight"
+            android:text="@string/radio1" />
+
+        <RadioButton
+            android:id="@+id/radioFemale"
+            android:layout_width="@dimen/radioButtonWidth"
+            android:layout_height="@dimen/radioButtonHeight"
+            android:text="@string/radio2" />
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
