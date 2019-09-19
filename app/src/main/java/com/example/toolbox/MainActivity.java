@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startBudgeting(View v) {
+        Intent intent = new Intent(MainActivity.this, MainBudgetingPage.class);
         EditText name = (EditText) findViewById(R.id.savingEdit);
         EditText salary = (EditText) findViewById(R.id.salary);
 
@@ -38,24 +39,16 @@ public class MainActivity extends AppCompatActivity {
         radioSexGroup = (RadioGroup) findViewById(R.id.radioSex);
         btnDisplay = (Button) findViewById(R.id.button);
 
-        btnDisplay.setOnClickListener(new View.OnClickListener() {
+        // get selected radio button from radioGroup
+        int selectedId = radioSexGroup.getCheckedRadioButtonId();
 
-            @Override
-            public void onClick(View v) {
+        // find the radiobutton by returned id
+        radioSexButton = (RadioButton) findViewById(selectedId);
 
-                // get selected radio button from radioGroup
-                int selectedId = radioSexGroup.getCheckedRadioButtonId();
+        String isYearly = radioSexButton.getText().toString();
 
-                // find the radiobutton by returned id
-                radioSexButton = (RadioButton) findViewById(selectedId);
+        intent.putExtra(MainBudgetingPage.ISYEARLY,isYearly);
 
-                String isYearly = radioSexButton.getText().toString();
-
-                intent.putExtra(MainBudgetingPage.ISYEARLY,isYearly);
-
-            }
-
-        });
 
         startActivity(intent);
     }
