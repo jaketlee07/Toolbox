@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BudgetReport"
+    android:layout_margin="@dimen/margin">
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="381dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="4dp"
+        android:gravity="center"
+        android:text="Budget Report"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/budgetReport"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/budgetReport"
+        android:layout_width="378dp"
+        android:layout_height="618dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="13dp"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

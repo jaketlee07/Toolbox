@@ -4,29 +4,53 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 
 public class MainActivity extends AppCompatActivity {
 
 
-    private RadioGroup radioSexGroup;
+    private RadioGroup radioGroup;
     private RadioButton radioSexButton;
-    private Button btnDisplay;
 
-    Intent intent = new Intent(this, MainBudgetingPage.class);
+    private String isYearly;
+    Intent intent = new Intent(MainActivity.this, MainBudgetingPage.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        radioGroup = findViewById(R.id.radioSex);
+
+
     }
 
+    public void radioListener(View v) {
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId)
+            {
+
+                RadioButton rb = (RadioButton) findViewById(checkedId);
+                // get selected radio button from radioGroup
+                //int selectedId = radioGroup.getCheckedRadioButtonId();
+
+                // find the radiobutton by returned id
+                //radioSexButton = (RadioButton) findViewById(selectedId);
+                isYearly = rb.getText().toString();
+            }
+        });
+    }
+
+
+
     public void startBudgeting(View v) {
-        Intent intent = new Intent(MainActivity.this, MainBudgetingPage.class);
         EditText name = (EditText) findViewById(R.id.savingEdit);
         EditText salary = (EditText) findViewById(R.id.salary);
 
@@ -36,20 +60,30 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(MainBudgetingPage.NAME, nameStr);
         intent.putExtra(MainBudgetingPage.SALARY, salaryStr);
 
-        radioSexGroup = (RadioGroup) findViewById(R.id.radioSex);
-        btnDisplay = (Button) findViewById(R.id.button);
+        //radioListener();
 
-        // get selected radio button from radioGroup
-        int selectedId = radioSexGroup.getCheckedRadioButtonId();
+        boolean checked = ((RadioButton) v).isChecked();
 
-        // find the radiobutton by returned id
-        radioSexButton = (RadioButton) findViewById(selectedId);
-
-        String isYearly = radioSexButton.getText().toString();
+        /*switch(v.getId())
+        {
+            case R.id.radioMale:
+                if(checked)
+                    isYearly = "Monthly";
+                break;
+            case R.id.radioFemale:
+                if(checked)
+                    isYearly = "Yearly";
+                break;
+        }
+        */
 
         intent.putExtra(MainBudgetingPage.ISYEARLY,isYearly);
 
 
         startActivity(intent);
-    }
+
+
+
+        }
+
 }

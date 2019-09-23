@@ -55,8 +55,8 @@
 
     <TextView
         android:id="@+id/mainBudgetTitle"
-        android:layout_width="268dp"
-        android:layout_height="64dp"
+        android:layout_width="272dp"
+        android:layout_height="93dp"
         android:gravity="center"
         android:textSize="@dimen/MainBudgetingPageTitleTextSize"
         tools:layout_editor_absoluteX="59dp"
@@ -166,6 +166,7 @@
         android:layout_marginEnd="65dp"
         android:text="Spending Report"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        android:onClick="billReport"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,6 +29,8 @@ public class MainBudgetingPage extends AppCompatActivity implements AdapterView.
     public int savingAmount;
     public int billsAmount;
 
+    public String salaryYearly = ISYEARLY;
+
     private RadioGroup radioSexGroup;
     private CheckBox radioSexButton;
     private Button btnDisplay;
@@ -121,33 +123,41 @@ public class MainBudgetingPage extends AppCompatActivity implements AdapterView.
         radioSexGroup = (RadioGroup) findViewById(R.id.radioGroup);
         btnDisplay = (Button) findViewById(R.id.button4);
 
-        btnDisplay.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
+        // get selected radio button from radioGroup
+        int selectedId = radioSexGroup.getCheckedRadioButtonId();
 
-                // get selected radio button from radioGroup
-                int selectedId = radioSexGroup.getCheckedRadioButtonId();
+        // find the radiobutton by returned id
+        radioSexButton = (CheckBox) findViewById(selectedId);
 
-                // find the radiobutton by returned id
-                radioSexButton = (CheckBox) findViewById(selectedId);
+        String billTime = radioSexButton.getText().toString();
 
-                String billTime = radioSexButton.getText().toString();
-
-                if(billTime == "Monthly")
-                {
-                    time = 6;
-                }
+        if(billTime == "Monthly")
+        {
+            time = 6;
+        }
 
 
-            }
-
-        });
 
         EditText bill = (EditText) findViewById(R.id.BillsEdit);
         String billStr = bill.getText().toString();
         int billTotal = Integer.parseInt(billStr);
 
         billsAmount += billTotal/time;
+    }
+
+    public void billReport(View v)
+    {
+        Intent intent = new Intent(this, BudgetReport.class);
+
+        String billsStr =  Integer.toString(billsAmount);
+        String savingStr =  Integer.toString(savingAmount);
+        String spendingStr =  Integer.toString(spendingAmount);
+
+        intent.putExtra(BudgetReport.SPENDING_TOTAL, spendingStr);
+        intent.putExtra(BudgetReport.SAVING_TOTAL, savingStr);
+        intent.putExtra(BudgetReport.BILL_TOTAL, billsStr);
+
+        startActivity(intent);
     }
 }
