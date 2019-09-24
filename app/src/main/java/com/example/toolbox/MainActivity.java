@@ -18,34 +18,22 @@ public class MainActivity extends AppCompatActivity {
     private RadioGroup radioGroup;
     private RadioButton radioSexButton;
 
-    private String isYearly;
-    Intent intent = new Intent(MainActivity.this, MainBudgetingPage.class);
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        radioGroup = findViewById(R.id.radioSex);
-
+        intent = new Intent(MainActivity.this, MainBudgetingPage.class);
 
     }
 
-    public void radioListener(View v) {
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId)
-            {
-
-                RadioButton rb = (RadioButton) findViewById(checkedId);
-                // get selected radio button from radioGroup
-                //int selectedId = radioGroup.getCheckedRadioButtonId();
-
-                // find the radiobutton by returned id
-                //radioSexButton = (RadioButton) findViewById(selectedId);
-                isYearly = rb.getText().toString();
-            }
-        });
+    public void radioListener(View v, Intent intent) {
+        RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioSex);
+        int radioButtonID = radioGroup.getCheckedRadioButtonId();
+        RadioButton radioButton = (RadioButton) radioGroup.findViewById(radioButtonID);
+        String isYearly = radioButton.getText().toString();
+        intent.putExtra(MainBudgetingPage.ISYEARLY, isYearly);
     }
 
 
@@ -60,24 +48,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(MainBudgetingPage.NAME, nameStr);
         intent.putExtra(MainBudgetingPage.SALARY, salaryStr);
 
-        //radioListener();
-
-        boolean checked = ((RadioButton) v).isChecked();
-
-        /*switch(v.getId())
-        {
-            case R.id.radioMale:
-                if(checked)
-                    isYearly = "Monthly";
-                break;
-            case R.id.radioFemale:
-                if(checked)
-                    isYearly = "Yearly";
-                break;
-        }
-        */
-
-        intent.putExtra(MainBudgetingPage.ISYEARLY,isYearly);
+        radioListener(v, intent);
 
 
         startActivity(intent);
