@@ -29,7 +29,6 @@ public class MainBudgetingPage extends AppCompatActivity implements AdapterView.
     public int savingAmount;
     public int billsAmount;
 
-    public String salaryYearly = ISYEARLY;
 
     private RadioGroup radioSexGroup;
     private CheckBox radioSexButton;
@@ -44,9 +43,10 @@ public class MainBudgetingPage extends AppCompatActivity implements AdapterView.
         Intent intent = getIntent();
         String myName = intent.getStringExtra(NAME);
         String mySalary = intent.getStringExtra(SALARY);
+        String myYearly = intent.getStringExtra(ISYEARLY);
         int salaryInt = Integer.parseInt(mySalary);
 
-        if(ISYEARLY == "Yearly")
+        if(myYearly.equals("Yearly"))
         {
             salaryInt = salaryInt/12;
         }
@@ -98,19 +98,19 @@ public class MainBudgetingPage extends AppCompatActivity implements AdapterView.
         {
             time = 1;
         }
-        else if (text == "6 Months")
+        else if (text.equals("6 Months"))
         {
             time = 6;
         }
-        else if (text == "12 Months")
+        else if (text.equals("12 Months"))
         {
             time = 12;
         }
-        else if (text == "24 Months")
+        else if (text.equals("24 Months"))
         {
             time = 24;
         }
-        else if (text == "36 Months")
+        else if (text.equals("36 Months"))
         {
             time = 36;
         }
@@ -132,7 +132,7 @@ public class MainBudgetingPage extends AppCompatActivity implements AdapterView.
 
         String billTime = radioSexButton.getText().toString();
 
-        if(billTime == "Monthly")
+        if(billTime.equals("Monthly"))
         {
             time = 6;
         }

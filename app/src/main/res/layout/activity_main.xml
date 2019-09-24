@@ -88,15 +88,13 @@
             android:id="@+id/radioMale"
             android:layout_width="@dimen/radioButtonWidth"
             android:layout_height="@dimen/radioButtonHeight"
-            android:text="@string/radio1"
-            android:onClick="radioListener"/>
+            android:text="@string/radio1" />
 
         <RadioButton
             android:id="@+id/radioFemale"
             android:layout_width="@dimen/radioButtonWidth"
             android:layout_height="@dimen/radioButtonHeight"
-            android:text="@string/radio2"
-            android:onClick="radioListener"/>
+            android:text="@string/radio2" />
     </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
