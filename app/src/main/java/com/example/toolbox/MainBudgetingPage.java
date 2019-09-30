@@ -30,10 +30,6 @@ public class MainBudgetingPage extends AppCompatActivity implements AdapterView.
     public int billsAmount;
 
 
-    private RadioGroup radioSexGroup;
-    private CheckBox radioSexButton;
-    private Button btnDisplay;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,7 +90,7 @@ public class MainBudgetingPage extends AppCompatActivity implements AdapterView.
         int savingTotal = Integer.parseInt(savingStr);
 
 
-        if(text == "1 Month")
+        if(text.equals("1 Month"))
         {
             time = 1;
         }
@@ -120,21 +116,12 @@ public class MainBudgetingPage extends AppCompatActivity implements AdapterView.
     public void addBill (View v)
     {
 
-        radioSexGroup = (RadioGroup) findViewById(R.id.radioGroup);
-        btnDisplay = (Button) findViewById(R.id.button4);
+        boolean isChecked = ((CheckBox) findViewById(R.id.checkBox)).isChecked();
 
 
-        // get selected radio button from radioGroup
-        int selectedId = radioSexGroup.getCheckedRadioButtonId();
-
-        // find the radiobutton by returned id
-        radioSexButton = (CheckBox) findViewById(selectedId);
-
-        String billTime = radioSexButton.getText().toString();
-
-        if(billTime.equals("Monthly"))
+        if(isChecked)
         {
-            time = 6;
+            time = 12;
         }
 
 
@@ -148,7 +135,7 @@ public class MainBudgetingPage extends AppCompatActivity implements AdapterView.
 
     public void billReport(View v)
     {
-        Intent intent = new Intent(this, BudgetReport.class);
+        Intent intent = new Intent(MainBudgetingPage.this, BudgetReport.class);
 
         String billsStr =  Integer.toString(billsAmount);
         String savingStr =  Integer.toString(savingAmount);

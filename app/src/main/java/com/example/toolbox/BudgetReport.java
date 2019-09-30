@@ -23,11 +23,11 @@ public class BudgetReport extends AppCompatActivity {
         String spendingTotal = intent.getStringExtra(SPENDING_TOTAL);
 
         String strToDisplay =
-                "Spending:/t/t" + spendingTotal + "/n" +
-                "Bill:/t/t" + billTotal + "/n" +
-                "Savings:/t/t" + savingTotal + "/n";
+                "Spending:$" + spendingTotal + "\n" +
+                "Bill:$" + billTotal + "\n" +
+                "Savings:$" + savingTotal + "\n";
 
-        int savingTotalInt = Integer.parseInt(savingTotal);
+        /*int savingTotalInt = Integer.parseInt(savingTotal);
         int billTotalInt = Integer.parseInt(billTotal);
         int spendingTotalInt = Integer.parseInt(spendingTotal);
 
@@ -36,17 +36,17 @@ public class BudgetReport extends AppCompatActivity {
 
         if((salary - total) < 0)
         {
-            strToDisplay += "/n Unfortunately you cannot afford all of your payments for this month";
+            strToDisplay += "\n Unfortunately you cannot afford all of your payments for this month";
         }
         else if((salary - total) > 0)
         {
-            strToDisplay += "/n You can afford all of your payments for this month and have " + (salary - total) + " left to spend";
+            strToDisplay += "\n You can afford all of your payments for this month and have $" + (salary - total) + " left to spend";
         }
         else
         {
-            strToDisplay += "/n You have spent exactly all of your salary for this month";
+            strToDisplay += "\n You have spent exactly all of your salary for this month";
         }
-
+*/
         TextView str = (TextView) findViewById(R.id.budgetReport);
         str.setText(strToDisplay);
     }

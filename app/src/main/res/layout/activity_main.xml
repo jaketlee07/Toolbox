@@ -8,6 +8,15 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
+    <View
+        android:id="@+id/background_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0"
+        android:background="@android:color/background_dark"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="31dp" />
+
     <EditText
         android:id="@+id/savingEdit"
         android:layout_width="wrap_content"
@@ -16,6 +25,8 @@
         android:layout_marginBottom="92dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textColor="@color/day"
+        android:textColorHint="@color/day"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/salary"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -28,6 +39,8 @@
         android:layout_marginBottom="288dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textColor="@color/day"
+        android:textColorHint="@color/day"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -40,16 +53,17 @@
         android:text="Salary"
         android:textSize="@dimen/mainEnterTextSize"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/day"/>
 
     <TextView
         android:layout_width="@dimen/mainTitleWidth"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="124dp"
+        android:layout_marginBottom="136dp"
         android:text="Personal Budgeting App"
+        android:textColor="@color/day"
         android:textSize="@dimen/mainEnterTextSize"
         app:layout_constraintBottom_toTopOf="@+id/savingEdit"
-        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
@@ -62,7 +76,8 @@
         android:text="Name"
         android:textSize="@dimen/mainEnterTextSize"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/day"/>
 
     <Button
         android:id="@+id/button"
@@ -73,7 +88,8 @@
         android:onClick="startBudgeting"
         android:text="Start Budgeting"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/day"/>
 
     <RadioGroup
         android:id="@+id/radioSex"
@@ -88,13 +104,26 @@
             android:id="@+id/radioMale"
             android:layout_width="@dimen/radioButtonWidth"
             android:layout_height="@dimen/radioButtonHeight"
-            android:text="@string/radio1" />
+            android:text="@string/radio1"
+            android:textColor="@color/day"
+            android:textColorHint="@color/day" />
 
         <RadioButton
             android:id="@+id/radioFemale"
             android:layout_width="@dimen/radioButtonWidth"
             android:layout_height="@dimen/radioButtonHeight"
-            android:text="@string/radio2" />
+            android:text="@string/radio2"
+            android:textColor="@color/day"/>
+
     </RadioGroup>
+
+    <com.mahfa.dnswitch.DayNightSwitch
+        android:id="@+id/dayNightSwitch"
+        android:layout_width="103dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/savingEdit"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,14 +16,16 @@
         android:text="Budget Report"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/budgetReport"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/day"/>
 
     <TextView
         android:id="@+id/budgetReport"
-        android:layout_width="378dp"
-        android:layout_height="618dp"
+        android:layout_width="383dp"
+        android:layout_height="559dp"
         android:layout_marginStart="4dp"
         android:layout_marginBottom="13dp"
+        android:textColor="@color/day"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
