@@ -27,12 +27,14 @@ public class BudgetReport extends AppCompatActivity {
                 "Bill:$" + billTotal + "\n" +
                 "Savings:$" + savingTotal + "\n";
 
-        /*int savingTotalInt = Integer.parseInt(savingTotal);
+        int savingTotalInt = Integer.parseInt(savingTotal);
         int billTotalInt = Integer.parseInt(billTotal);
         int spendingTotalInt = Integer.parseInt(spendingTotal);
 
         int total = savingTotalInt + billTotalInt + spendingTotalInt;
-        int salary = Integer.parseInt(MainBudgetingPage.SALARY);
+       // int salary = Integer.parseInt(MainBudgetingPage.SALARY);
+
+        int salary = 6000;
 
         if((salary - total) < 0)
         {
@@ -46,7 +48,7 @@ public class BudgetReport extends AppCompatActivity {
         {
             strToDisplay += "\n You have spent exactly all of your salary for this month";
         }
-*/
+
         TextView str = (TextView) findViewById(R.id.budgetReport);
         str.setText(strToDisplay);
     }
